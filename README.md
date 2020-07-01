@@ -26,11 +26,7 @@ pip install --upgrade pip
 pip install --upgrade setuptools
 pip install -r requirements.txt
 ```
-Buat database di phpmyadmin / sejenisnya dengan nama database django_tutorialcrud <br>
-Buka terminal untuk collectstatic
-```bash
-python manage.py collectstatic 
-```
+Buat database di phpmyadmin / sejenisnya dengan nama database <b>django_tutorialcrud</b> <br>
 tetap pada terminal, jalankan perintah migrasi
 ```bash
 python manage.py makemigrations && python manage.py migrate
