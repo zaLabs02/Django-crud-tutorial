@@ -14,8 +14,15 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 from mahasiswa import views
+
+from rest_framework import routers
+from mahasiswa import api_views as myapp_views
+
+router = routers.DefaultRouter()
+router.register(r'dtmhs', myapp_views.DataMhsViewset)
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -23,5 +30,6 @@ urlpatterns = [
     path('tambah',views.tambah),
     path('editdata/<int:npm>',views.edit),
     path('hapusdata/<int:npm>',views.hapus),
+    path('api/v1/', include(router.urls)),
 
 ]
