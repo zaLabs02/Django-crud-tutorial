@@ -103,4 +103,4 @@ venv.bak/
 # mypy
 .mypy_cache/
 
-/src/static_cdn/
+/code/static/

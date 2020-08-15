@@ -29,7 +29,7 @@ services:
     command: python manage.py runserver 0.0.0.0:8000
     # command: /usr/local/bin/daphne crudtutorial.asgi:applicatiyon
     volumes:
-      - ./static_cdn/static_root:/static_cdn/static_root
+      - ./code/static:/code/static
     ports:
       - "8000:8000"
     # links:
@@ -39,11 +39,11 @@ services:
     container_name: dev_nginx
     volumes:
       - ./nginx:/etc/nginx/conf.d
-      - ./static_cdn/static_root:/static
+      - ./code/static:/static
     depends_on:
       - web
     ports:
-      - 8000:80
+      - 80:80
 
   # nginx:
   #   restart: always
