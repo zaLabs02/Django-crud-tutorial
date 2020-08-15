@@ -2,3 +2,5 @@ django
 pymysql
 djangorestframework
 django-cors-headers
+daphne
+whitenoise

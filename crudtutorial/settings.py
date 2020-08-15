@@ -12,7 +12,7 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 
 import os
 import pymysql
-pymysql.version_info = (1, 3, 13, "final", 0)
+pymysql.version_info = (1, 4, 0, "final", 0)
 pymysql.install_as_MySQLdb()
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -28,7 +28,7 @@ SECRET_KEY = 'j$t3i*)z#npdycc6e!+qd&)_u@6d-6lpn!qw*hq(9u)!f=ocpg'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -49,6 +49,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     # CORS
     'corsheaders.middleware.CorsMiddleware',
@@ -88,15 +89,22 @@ WSGI_APPLICATION = 'crudtutorial.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
+# DATABASES = {
+#      'default': {
+#         'ENGINE': 'django.db.backends.mysql', 
+#         'NAME': 'django_tutorialcrud',
+#         'USER': 'root',
+#         'PASSWORD': '',
+#         'HOST': '127.0.0.1',   
+#         'PORT': '3306',
+#     }   
+# }
+
 DATABASES = {
-     'default': {
-        'ENGINE': 'django.db.backends.mysql', 
-        'NAME': 'django_tutorialcrud',
-        'USER': 'root',
-        'PASSWORD': '',
-        'HOST': '127.0.0.1',   
-        'PORT': '3306',
-    }   
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    }
 }
 
 
@@ -137,3 +145,4 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
