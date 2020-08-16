@@ -6,7 +6,7 @@ services:
     ports:
       - "3306:3306"
     environment:
-      MYSQL_USER: user
+      MYSQL_USER: user2
       MYSQL_PASSWORD: user
       MYSQL_ROOT_PASSWORD: root
       MYSQL_DATABASE: django_tutorialcrud
@@ -30,7 +30,7 @@ services:
     # command: /usr/local/bin/daphne crudtutorial.asgi:applicatiyon
     volumes:
       - .:/code
-      - .:/static
+      - ./code/static:/code/static
     ports:
       - "8000:8000"
     links:
@@ -40,7 +40,7 @@ services:
     container_name: dev_nginx
     volumes:
       - ./nginx:/etc/nginx/conf.d
-      - ./static:/static
+      - ./code/static:/static
     depends_on:
       - web
     ports:
