@@ -93,7 +93,7 @@ DATABASES = {
      'default': {
         'ENGINE': 'django.db.backends.mysql', 
         'NAME': 'django_tutorialcrud',
-        'USER': 'user',
+        'USER': 'user2',
         'PASSWORD': 'user',
         'HOST': 'mysql',   
         'PORT': '3306',
